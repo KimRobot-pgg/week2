@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Code {
@@ -11,7 +12,7 @@ public class Code {
             System.out.println("알고리즘 문제 선택");
             System.out.println("1. 1~n 연속된 수의 합");
             System.out.println("2. 두 수 입력, n~m 의 합");
-            System.out.println("3. 별찍기 숫자입력,마름모 출력");
+            System.out.println("3. 별찍기 ,마름모 출력");
             System.out.println("4. 별찍기응용1 육망성");
             System.out.println("5. 별찍기응용2 오망성");
             System.out.println("6. 별찍기응용3 원");
@@ -68,13 +69,14 @@ public class Code {
 
     public static void Algo2() {
         //두수 입력, n~m 합
+        cls();
+
         System.out.print("숫자1 입력: ");
         int num1 = nextInt();
         System.out.print("숫자2 입력: ");
         int num2 = nextInt();
 
         int sum = 0;
-
 
         if (num1 > num2) { //num2에 큰 수를 할당하기.
             int temp = num2;
@@ -89,27 +91,60 @@ public class Code {
     }
 
     public static void Algo3() {
+        //마름모 , 절대값을 이용함.
+        cls();
 
+        System.out.print("숫자입력: ");
+        int num = nextInt();
+        int maxLength = num * 2 - 1;
+        int avg = maxLength / 2;
+
+        String[] stars = new String[num];
+
+        Arrays.fill(stars, ""); //배열 요소 초기화
+
+        if (num <= 0 || num == 1) {
+            System.out.println("pass");
+        } else {
+            for (int i = 0; i < stars.length; i++) {
+                for (int j = 0; j < maxLength; j++) {
+                    if (j == avg || j <= avg + i && j >= avg - i) {
+                        stars[i] += "■";
+                    } else {
+                        stars[i] += "□";
+                    }
+                }
+            }
+        }
+        //윗부분 출력
+        for (int i = 0; i< stars.length; i++) {
+            System.out.println(stars[i]);
+        }
+        //아래부분 출력, -2하는 이유는 인덱스는 0부터 시작이고 마지막줄은 출력을 안해도 되기 때문.
+        for (int i = stars.length-2; -1 < i; i--) {
+            System.out.println(stars[i]);
+        }
     }
 
     public static void Algo4() {
-
+        // 육망성
     }
 
     public static void Algo5() {
+        //오망성
 
     }
 
     public static void Algo6() {
-
+        //원
     }
 
     public static void Algo7() {
-
+        //스도쿠
     }
 
     public static void Algo8() {
-
+        //문자열 입력받고 반복되지 않은 가장 긴 문자열 찾아 길이와 해당 문자열 출력
     }
 
     public static void cls() {
@@ -118,6 +153,7 @@ public class Code {
             System.out.println();
         }
     }
+
     public static int nextInt() {
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
