@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 public class Code {
 
-
     public static void main(String[] args) {
-
 
         while (true) {
             cls();
@@ -52,7 +50,6 @@ public class Code {
 
     }
 
-
     public static void Algo1() {
         //숫자 하나 입력, 1~n 의 합
         cls();
@@ -91,7 +88,7 @@ public class Code {
     }
 
     public static void Algo3() {
-        //마름모 , 절대값을 이용함.
+        //마름모
         cls();
 
         System.out.print("숫자입력: ");
@@ -117,17 +114,65 @@ public class Code {
             }
         }
         //윗부분 출력
-        for (int i = 0; i< stars.length; i++) {
-            System.out.println(stars[i]);
+//        for (int i = 0; i< stars.length; i++) {
+//            System.out.println(stars[i]);
+//        }
+        for (String star : stars) { //향상된 for 문
+            System.out.println(star);
         }
         //아래부분 출력, -2하는 이유는 인덱스는 0부터 시작이고 마지막줄은 출력을 안해도 되기 때문.
-        for (int i = stars.length-2; -1 < i; i--) {
+        for (int i = stars.length - 2; -1 < i; i--) {
             System.out.println(stars[i]);
         }
     }
 
     public static void Algo4() {
         // 육망성
+        cls();
+
+        System.out.print("숫자입력: ");
+        int num = nextInt();
+        int side = num * 2 + 1;
+        int hLen = side * 3 - 2;
+        int vLen = side + num * 2;
+        int avg = hLen / 2;
+
+        int[][] array1 = new int[vLen][hLen];
+
+//        for (int i = 0; i < vLen; i++) {
+//            System.out.println(Arrays.toString(array1[i])); //요소가 전부 0으로 초기화 되어있다. 왜지
+//        }
+
+        //정삼각형 맵핑
+        for (int i = 0; i < side + 1; i++) {
+            for (int j = 0; j < hLen; j++) {
+                if (j == avg || j >= avg - i && j <= avg + i) {
+                    array1[i][j] += 1;
+                }
+            }
+        }
+
+        //역삼각형 맵핑
+        for (int i = vLen - 1; i >= num; i--) {
+            for (int j = 0; j < hLen; j++) {
+                if (j == avg || j >= avg - (vLen-1-i) && j <= avg + (vLen-1 -i)) {
+                    array1[i][j] += 1;
+                }
+            }
+        }
+        cls();
+        for (int i = 0; i < vLen; i++) {
+            for(int j = 0; j < hLen; j++) {
+                if(array1[i][j] > 0) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+
+
     }
 
     public static void Algo5() {
