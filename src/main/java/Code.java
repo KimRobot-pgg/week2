@@ -109,9 +109,9 @@ public class Code {
             for (int i = 0; i < stars.length; i++) {
                 for (int j = 0; j < maxLength; j++) {
                     if (j == avg || j <= avg + i && j >= avg - i) {
-                        stars[i] += "■";
+                        stars[i] += "*";
                     } else {
-                        stars[i] += "□";
+                        stars[i] += " ";
                     }
                 }
             }
