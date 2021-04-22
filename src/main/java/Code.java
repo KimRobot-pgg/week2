@@ -144,7 +144,7 @@ public class Code {
 //        }
 
         //정삼각형 맵핑
-        for (int i = 0; i < side + 1; i++) {
+        for (int i = 0; i < vLen - num; i++) {
             for (int j = 0; j < hLen; j++) {
                 if (j == avg || j >= avg - i && j <= avg + i) {
                     array1[i][j] += 1;
