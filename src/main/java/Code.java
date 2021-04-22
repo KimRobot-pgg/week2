@@ -68,8 +68,24 @@ public class Code {
 
     public static void Algo2() {
         //두수 입력, n~m 합
+        System.out.print("숫자1 입력: ");
+        int num1 = nextInt();
+        System.out.print("숫자2 입력: ");
+        int num2 = nextInt();
+
+        int sum = 0;
 
 
+        if (num1 > num2) { //num2에 큰 수를 할당하기.
+            int temp = num2;
+            num2 = num1;
+            num1 = temp;
+        }
+
+        for (int i = num1; i < num2 + 1; i++) {
+            sum += i;
+        }
+        System.out.println("합: " + sum);
     }
 
     public static void Algo3() {
