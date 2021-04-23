@@ -23,20 +23,28 @@ public class Code {
             switch (num) {
                 case 1:
                     Algo1();
+                    break;
                 case 2:
                     Algo2();
+                    break;
                 case 3:
                     Algo3();
+                    break;
                 case 4:
                     Algo4();
+                    break;
                 case 5:
                     Algo5();
+                    break;
                 case 6:
                     Algo6();
+                    break;
                 case 7:
                     Algo7();
+                    break;
                 case 8:
                     Algo8();
+                    break;
                 case 9:
                     break;
                 default:
@@ -155,37 +163,87 @@ public class Code {
         //역삼각형 맵핑
         for (int i = vLen - 1; i >= num; i--) {
             for (int j = 0; j < hLen; j++) {
-                if (j == avg || j >= avg - (vLen-1-i) && j <= avg + (vLen-1 -i)) {
+                if (j == avg || j >= avg - (vLen - 1 - i) && j <= avg + (vLen - 1 - i)) {
                     array1[i][j] += 1;
                 }
             }
         }
         cls();
+        //육망성 그리기.
         for (int i = 0; i < vLen; i++) {
-            for(int j = 0; j < hLen; j++) {
-                if(array1[i][j] > 0) {
+            for (int j = 0; j < hLen; j++) {
+                if (array1[i][j] > 0) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
                 }
             }
-            System.out.println("");
+            System.out.println();
         }
-
-
     }
 
     public static void Algo5() {
         //오망성
+        //육망성 코드 복사.
+        cls();
 
+        System.out.print("숫자입력: ");
+        int num = nextInt();
+        int side = num * 2 + 1;
+        int hLen = side * 3 + 2;
+        int vLen = side + num * 2;
+        int avg = hLen / 2;
+
+        int[][] array1 = new int[vLen][hLen];
+
+        //정삼각형 맵핑
+        for (int i = 0; i < vLen - num; i++) {
+            for (int j = 0; j < hLen; j++) {
+                if (j == avg || j >= avg - i && j <= avg + i) {
+                    array1[i][j] += 1;
+                }
+            }
+        }
+
+        //역삼각형 맵핑
+        for (int i = vLen - num-1; i >= num; i--) {
+            for (int j = 0; j < hLen; j++) {
+                if (j == avg || j >= avg - (vLen - 1 - i) && j <= avg + (vLen - 1 - i)) {
+                    array1[i][j] += 1;
+                }
+            }
+        }
+
+        cls();
+        // 그리기.
+        for (int i = 0; i < vLen; i++) {
+            for (int j = 0; j < hLen; j++) {
+                if (array1[i][j] > 0) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     public static void Algo6() {
         //원
+
     }
 
     public static void Algo7() {
         //스도쿠
+
+        int[][] sudoku = new int[9][9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(sudoku[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void Algo8() {
